@@ -1,10 +1,5 @@
 import Nav from '@/components/Nav'
-import MarketplaceHero from '@/components/MarketplaceHero'
-import Performance from '@/components/Performance'
-import InsideAForecast from '@/components/InsideAForecast'
-import WhatPowersQ from '@/components/WhatPowersQ'
-import PutQToWork from '@/components/PutQToWork'
-import Footer from '@/components/Footer'
+import HomeV2Content from '@/components/home-v2/HomeV2Draft'
 import { buildPageMetadata } from '@/lib/metadata'
 
 export const metadata = buildPageMetadata({
@@ -16,18 +11,21 @@ export const metadata = buildPageMetadata({
 
 export default function Home() {
   return (
-    <div className='min-h-screen bg-tb-page pt-[44px]'>
+    <div className="h-screen overflow-hidden sm:overflow-hidden overflow-y-auto flex flex-col bg-white pt-[44px]">
       <Nav />
-      <main id="main-content" className="flex flex-col p-tb-gap pt-0 w-full">
-        <div className="flex flex-col gap-tb-gap">
-          <MarketplaceHero />
-          <Performance showCta={false} />
-          <InsideAForecast />
-          <WhatPowersQ />
-          <PutQToWork />
-          <Footer />
-        </div>
+      <main className="flex-1 min-h-0 flex flex-col px-4 pb-4">
+        <HomeV2Content />
       </main>
+      <footer className="flex-shrink-0 flex items-center justify-between px-4 sm:px-10 py-3 bg-white border-t border-gray-100">
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#9ca3af] font-medium">
+          © 2026 Quotient Inc.
+        </span>
+        <div className="flex items-center gap-4 sm:gap-7">
+          <a href="https://x.com/QuotientHQ" className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#9ca3af] font-medium hover:text-tb-dark transition-colors">X</a>
+          <a href="https://farcaster.xyz/quotient" className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#9ca3af] font-medium hover:text-tb-dark transition-colors">Farcaster</a>
+          <a href="https://quotient.substack.com" className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#9ca3af] font-medium hover:text-tb-dark transition-colors">Substack</a>
+        </div>
+      </footer>
     </div>
   )
 }

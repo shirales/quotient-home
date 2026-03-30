@@ -1,7 +1,8 @@
 import Nav from '@/components/Nav'
 import ApiCodeBlock from '@/components/ApiCodeBlock'
-import FooterLight from '@/components/FooterLight'
+import Footer from '@/components/Footer'
 import DotGridBackground from '@/components/DotGridBackground'
+import { InsideAForecastContent } from '@/components/InsideAForecast'
 import Link from 'next/link'
 import { buildPageMetadata } from '@/lib/metadata'
 
@@ -22,22 +23,21 @@ export default function BuildWithQPage() {
           <BuildWithQHero />
           <BuildWithQIntro />
           <WhatsAvailable />
-          <BankrPartnership />
+          <ForecastBreakdown />
           <CoreEndpoints />
-          <FooterLight />
+          <BankrPartnership />
+          <Footer />
         </div>
       </main>
     </div>
   )
 }
 
-// Section 1: Hero (dark, dot grid, 3px left border)
 function BuildWithQHero() {
   return (
-    <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24 relative overflow-hidden">
+    <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24 min-h-[220px] sm:min-h-[280px] lg:min-h-[340px] flex items-center relative overflow-hidden">
       <DotGridBackground />
-      <div className="max-w-content mx-auto relative z-10">
-        {/* Content with 3px orange left border */}
+      <div className="max-w-content mx-auto w-full relative z-10">
         <div className="border-l-[3px] border-tb-primary pl-5">
           <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
             Build with Q
@@ -48,22 +48,24 @@ function BuildWithQHero() {
             <span className="text-white/70">via API</span>
           </h1>
           <p className="text-[15px] leading-[1.7] max-w-[480px] mb-6 text-white/70">
-            Forecasts, signals, and trading strategies for apps, agents, and workflows. Give your agent a superforecaster.
+            Forecasts, signals, and trading strategies for apps, agents, and workflows.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 items-start">
             <a
               href="https://dev.quotient.social/dashboard"
-              className="inline-block text-[13px] font-mono uppercase tracking-[0.08em] px-6 sm:px-7 py-3 bg-tb-primary text-white rounded-tb-card hover:bg-tb-cta-hover transition-colors"
+              className="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-[0.08em] px-6 sm:px-7 py-3 bg-tb-primary text-white rounded-tb-card hover:bg-tb-cta-hover transition-colors group"
             >
-              Get API Key &rarr;
+              Get API Key
+              <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
             </a>
             <a
               href="https://dev.quotient.social/docs#tag/markets/GET/api/v1/markets"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-[13px] font-mono uppercase tracking-[0.08em] px-6 sm:px-7 py-3 border border-white/30 text-white rounded-tb-card hover:border-white/60 transition-colors"
+              className="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-[0.08em] px-6 sm:px-7 py-3 border border-white/30 text-white rounded-tb-card hover:border-white/60 transition-colors group"
             >
-              Read the docs &rarr;
+              Read the docs
+              <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
             </a>
           </div>
         </div>
@@ -72,49 +74,93 @@ function BuildWithQHero() {
   )
 }
 
-// Section 2: Build with Q intro (dark, two-column with code block)
+function ForecastBreakdown() {
+  return (
+    <section className="section-shell bg-tb-cream rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y">
+      <div className="max-w-content mx-auto">
+        <span className="block uppercase mb-3 font-mono text-tb-primary text-[11px] tracking-[0.08em]">
+          What you get back
+        </span>
+        <h2 className="font-headline font-bold text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-2 uppercase">
+          See inside a Q forecast.
+        </h2>
+        <p className="text-[15px] leading-[1.7] text-tb-dark/60 max-w-[560px] mb-8">
+          Each forecast includes a directional call, the key factors driving the view, and the full analysis behind it.
+        </p>
+        <InsideAForecastContent />
+      </div>
+    </section>
+  )
+}
+
 function BuildWithQIntro() {
   return (
-    <section className="section-shell bg-tb-dark rounded-tb-card py-8 lg:py-12 relative overflow-hidden">
+    <section className="section-shell bg-tb-cream rounded-tb-card py-8 lg:py-12 relative overflow-hidden">
       <DotGridBackground />
       <div className="max-w-content mx-auto relative z-10">
-        <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
-          Technical Details
-        </span>
-        <h2 className="font-headline font-bold uppercase text-white text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-6">
-          The API at a glance
-        </h2>
-
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-10 items-start">
-          {/* Left column: framing + specs */}
-          <div className="flex flex-col gap-8">
-            <p className="text-[15px] text-white/70 leading-[1.7]">
-              Five endpoints. Two payment methods. Structured intelligence ready to consume.
-            </p>
+          <div className="flex flex-col gap-3">
+            <div className="mb-2">
+              <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
+                Technical Details
+              </span>
+              <h2 className="font-headline font-bold uppercase text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-3">
+                The API at a glance
+              </h2>
+              <p className="text-[15px] text-tb-dark/70 leading-[1.7]">
+                Five endpoints. Two payment methods. Structured intelligence ready to consume.
+              </p>
+            </div>
 
-            <div>
-              <div className="text-[13px] font-semibold text-white mb-2">Response format</div>
-              <div className="text-[13px] text-white/70 leading-[1.6]">
-                JSON. Every endpoint returns structured data with consistent schema.
+            <div className="bg-white rounded-[10px] p-5 border border-tb-dark/[0.06]" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+              <div className="flex items-start gap-3.5">
+                <div className="flex-shrink-0 w-8 h-8 rounded-[6px] bg-tb-primary/10 flex items-center justify-center text-tb-primary">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-[14px] font-semibold text-tb-dark mb-1">Response format</div>
+                  <div className="text-[13px] text-tb-dark/60 leading-[1.6]">
+                    JSON. Every endpoint returns structured data with consistent schema.
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div>
-              <div className="text-[13px] font-semibold text-white mb-2">Authentication</div>
-              <div className="text-[13px] text-white/70 leading-[1.6]">
-                API key via <span className="font-mono text-tb-primary">x-quotient-api-key</span> header, or x402 micropayments for keyless access.
+            <div className="bg-white rounded-[10px] p-5 border border-tb-dark/[0.06]" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+              <div className="flex items-start gap-3.5">
+                <div className="flex-shrink-0 w-8 h-8 rounded-[6px] bg-tb-primary/10 flex items-center justify-center text-tb-primary">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-[14px] font-semibold text-tb-dark mb-1">Authentication</div>
+                  <div className="text-[13px] text-tb-dark/60 leading-[1.6]">
+                    API key via <span className="font-mono text-tb-primary">x-quotient-api-key</span> header, or x402 micropayments for keyless access.
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div>
-              <div className="text-[13px] font-semibold text-white mb-2">Pricing</div>
-              <div className="text-[13px] text-white/70 leading-[1.6]">
-                Pay per request or subscribe for unlimited access.
+            <div className="bg-white rounded-[10px] p-5 border border-tb-dark/[0.06]" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+              <div className="flex items-start gap-3.5">
+                <div className="flex-shrink-0 w-8 h-8 rounded-[6px] bg-tb-primary/10 flex items-center justify-center text-tb-primary">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-[14px] font-semibold text-tb-dark mb-1">Pricing</div>
+                  <div className="text-[13px] text-tb-dark/60 leading-[1.6]">
+                    Pay per request or subscribe for unlimited access.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right column: code block with glow */}
           <div>
             <ApiCodeBlock />
           </div>
@@ -124,9 +170,7 @@ function BuildWithQIntro() {
   )
 }
 
-// Section 3: What's Available (cream, centered 2+3 card layout)
 function WhatsAvailable() {
-  // Top row: 2 cards (Markets, Signals)
   const topRow = [
     {
       label: 'MARKETS',
@@ -150,7 +194,6 @@ function WhatsAvailable() {
     },
   ]
 
-  // Bottom row: 3 cards (Intelligence, Mispriced, Strategies)
   const bottomRow = [
     {
       label: 'INTELLIGENCE',
@@ -197,14 +240,12 @@ function WhatsAvailable() {
           Structured data designed for agents, dashboards, and trading workflows.
         </p>
 
-        {/* Top row: 2 equal-width cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3 max-w-[680px] mx-auto">
           {topRow.map((card) => (
             <FeatureCard key={card.label} {...card} />
           ))}
         </div>
 
-        {/* Bottom row: 3 equal-width cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-[680px] mx-auto">
           {bottomRow.map((card) => (
             <FeatureCard key={card.label} {...card} />
@@ -237,7 +278,6 @@ function FeatureCard({ label, title, desc, icon }: { label: string; title: strin
   )
 }
 
-// Section 4: Bankr Partnership (two-column split: white left, dark right)
 function BankrPartnership() {
   const steps = [
     {
@@ -258,31 +298,25 @@ function BankrPartnership() {
   ]
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px] rounded-tb-card overflow-hidden">
-      {/* Left column: white background */}
-      <div className="bg-white section-shell py-16 sm:py-20 lg:py-tb-section-y flex flex-col justify-center">
+    <section className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[400px] rounded-tb-card overflow-hidden bg-tb-cream">
+      <div className="bg-tb-cream section-shell py-12 sm:py-16 lg:py-tb-section-y flex flex-col justify-center">
         <div className="max-w-[510px] lg:ml-auto">
-          {/* Eyebrow */}
           <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
             Featured Integration: Bankr
           </span>
 
-          {/* Headline */}
           <h2 className="font-headline font-bold uppercase text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-2">
             Trade with Q on Bankr
           </h2>
 
-          {/* Subhead (italic) */}
           <p className="text-[15px] italic text-tb-dark/70 mb-4">
             Give your agent a superforecaster.
           </p>
 
-          {/* Body copy */}
           <p className="text-[15px] text-tb-dark/70 leading-[1.7] mb-6 max-w-[480px]">
             Bankr is the financial infrastructure for self-sustaining AI agents. Add the Quotient skill and your agent gets Q&apos;s forecasts, signals, and strategy on every position.
           </p>
 
-          {/* Numbered steps */}
           <div className="space-y-4 mb-6">
             {steps.map((step) => (
               <div key={step.num} className="flex items-start gap-3">
@@ -297,9 +331,8 @@ function BankrPartnership() {
             ))}
           </div>
 
-          {/* CTA */}
           <Link
-            href="https://skills.bankr.bot/#skills"
+            href="https://skills.bankr.bot/skills/quotient"
             target="_blank"
             rel="noopener"
             className="inline-block font-mono text-[13px] uppercase tracking-[0.08em] px-6 sm:px-7 py-3 bg-tb-primary text-white rounded-tb-card hover:bg-tb-cta-hover transition-colors"
@@ -309,26 +342,22 @@ function BankrPartnership() {
         </div>
       </div>
 
-      {/* Right column: dark background */}
-      <div className="bg-tb-dark flex flex-col section-shell">
-        {/* Image zone: flex-1 to fill remaining space, vertically centered */}
-        <div className="flex-1 flex items-center justify-center">
+      <div className="bg-tb-dark rounded-[10px] flex flex-col section-shell mx-3 mb-3 mt-0 lg:m-4">
+        <div className="flex-1 flex items-center justify-center p-4 sm:p-6">
           <img
             src="/bankr-quotient-partnership.png"
             alt="Bankr × Quotient partnership"
-            className="max-w-[400px] w-full h-auto"
+            className="max-w-[300px] sm:max-w-[400px] w-full h-auto"
           />
         </div>
 
-        {/* Thin divider */}
         <div className="border-t border-white/10" />
 
-        {/* About Bankr block: anchored to bottom */}
-        <div className="py-5 max-w-[510px]">
+        <div className="py-4 sm:py-5 px-4 sm:px-6">
           <span className="block font-mono text-[10px] uppercase tracking-[0.08em] text-white/50 mb-2">
             About Bankr
           </span>
-          <p className="text-[13px] text-white/70 leading-[1.6]">
+          <p className="text-[13px] text-white/60 leading-[1.6]">
             Bankr gives every AI agent a wallet, a token, and the tools to trade. Skills are plug-and-play modules that teach your agent new capabilities.
           </p>
         </div>
@@ -337,7 +366,6 @@ function BankrPartnership() {
   )
 }
 
-// Section 5: Core Endpoints (dark, dot grid)
 function CoreEndpoints() {
   const endpoints = [
     { method: 'GET', path: '/api/v1/markets', desc: 'Market catalog with forecast coverage and pagination' },
@@ -348,16 +376,16 @@ function CoreEndpoints() {
   ]
 
   return (
-    <section className="section-shell bg-tb-dark rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y relative overflow-hidden">
+    <section className="section-shell bg-tb-cream rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y relative overflow-hidden">
       <DotGridBackground />
       <div className="max-w-content mx-auto relative z-10">
         <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
           Endpoints
         </span>
-        <h2 className="font-headline font-bold uppercase text-white text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-2">
+        <h2 className="font-headline font-bold uppercase text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-2">
           Core endpoints
         </h2>
-        <p className="text-[14px] text-white/60 mb-6 max-w-[480px]">
+        <p className="text-[14px] text-tb-dark/60 mb-6 max-w-[480px]">
           Start with /api/v1/markets to orient, then pull signal detail per market.
         </p>
 
@@ -365,14 +393,14 @@ function CoreEndpoints() {
           {endpoints.map((ep) => (
             <div
               key={ep.path}
-              className="flex gap-3 py-4 border-b border-white/[0.08] last:border-b-0 items-start"
+              className="flex gap-3 py-4 border-b border-tb-dark/[0.08] last:border-b-0 items-start"
             >
               <span className="font-mono text-[10px] uppercase tracking-[0.06em] text-tb-primary bg-tb-primary/[0.12] px-2 py-1 rounded flex-shrink-0 mt-0.5">
                 {ep.method}
               </span>
               <div>
                 <div className="font-mono text-[14px] sm:text-[15px] text-tb-primary font-medium break-all sm:break-words">{ep.path}</div>
-                <div className="text-[13px] text-white/60 mt-0.5">{ep.desc}</div>
+                <div className="text-[13px] text-tb-dark/60 mt-0.5">{ep.desc}</div>
               </div>
             </div>
           ))}

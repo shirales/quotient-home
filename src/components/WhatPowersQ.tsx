@@ -33,7 +33,9 @@ function PeopleIcon() {
   )
 }
 
-const CARDS = [
+type WhatPowersQVariant = 'home' | 'about'
+
+const HOME_CARDS = [
   {
     icon: GlobeIcon,
     title: '1,600+ global sources',
@@ -51,34 +53,57 @@ const CARDS = [
   },
 ]
 
-export default function WhatPowersQ() {
+const ABOUT_CARDS = [
+  {
+    icon: GlobeIcon,
+    title: '1,000+ global sources',
+    desc: 'News, data, and event signals tracked across markets and geographies.',
+  },
+  {
+    icon: NetworkIcon,
+    title: 'AI superforecasting',
+    desc: "A team of agents weighs evidence, identifies key factors, and translates uncertainty into a reasoned view.",
+  },
+  {
+    icon: PeopleIcon,
+    title: '900+ human contributors',
+    desc: "Contributors review forecasts, surface context, and help sharpen Q's reasoning.",
+  },
+]
+
+interface WhatPowersQProps {
+  variant?: WhatPowersQVariant
+}
+
+export default function WhatPowersQ({ variant = 'home' }: WhatPowersQProps) {
+  const isAbout = variant === 'about'
+  const cards = isAbout ? ABOUT_CARDS : HOME_CARDS
+
   return (
     <section className="section-shell bg-tb-cream rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y">
       <div className="max-w-content mx-auto">
-        {/* Eyebrow */}
         <span className="block uppercase mb-3 font-mono text-tb-primary text-[11px] tracking-[0.08em]">
-          What Powers Q
+          {isAbout ? 'The system' : 'What Powers Q'}
         </span>
 
-        {/* Headline */}
         <h2 className="font-headline font-bold text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-3 uppercase">
           Built to find what others miss.
         </h2>
 
-        {/* Subhead */}
         <p className="text-[15px] leading-relaxed text-tb-dark/70 mb-8 max-w-[560px]">
-          Three inputs work together so Q sees further, reasons better, and gets sharper over time.
+          {isAbout
+            ? 'Q groups related markets into narratives organized around a shared thesis. You get context, not just a probability.'
+            : 'Three inputs work together so Q sees further, reasons better, and gets sharper over time.'}
         </p>
 
-        {/* Three cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[8px]">
-          {CARDS.map((card) => (
+          {cards.map((card) => (
             <div
               key={card.title}
               className="rounded-[10px] p-6 sm:p-7 flex flex-col bg-white"
               style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-[6px] bg-tb-dark/[0.06] flex items-center justify-center mb-4 text-tb-dark/60">
+              <div className="flex-shrink-0 w-10 h-10 rounded-[6px] bg-tb-primary/10 flex items-center justify-center mb-4 text-tb-primary">
                 <card.icon />
               </div>
               <h3 className="text-[16px] font-semibold mb-3 text-tb-dark">
@@ -90,6 +115,7 @@ export default function WhatPowersQ() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   )

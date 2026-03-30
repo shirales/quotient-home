@@ -17,7 +17,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className={`relative flex items-center px-4 font-mono text-[13px] uppercase tracking-[0.06em] transition-colors ${
+      className={`relative flex items-center px-4 font-mono text-[13px] uppercase tracking-[0.08em] transition-colors ${
         isActive
           ? 'text-tb-dark'
           : 'text-tb-dark/70 hover:text-tb-dark'
@@ -65,7 +65,7 @@ function CaseStudiesDropdown() {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className={`relative flex items-center px-4 font-mono text-[13px] uppercase tracking-[0.06em] transition-colors ${
+        className={`relative flex items-center px-4 font-mono text-[13px] uppercase tracking-[0.08em] transition-colors ${
           isActive
             ? 'text-tb-dark'
             : 'text-tb-dark/70 hover:text-tb-dark'
@@ -99,7 +99,7 @@ function CaseStudiesDropdown() {
             href="/case-studies/geopolitical"
             role="menuitem"
             onClick={() => setIsOpen(false)}
-            className={`block px-4 py-2 font-mono text-[12px] uppercase tracking-[0.06em] transition-colors ${
+            className={`block px-4 py-2 font-mono text-[12px] uppercase tracking-[0.08em] transition-colors ${
               pathname === '/case-studies/geopolitical'
                 ? 'text-tb-primary bg-tb-primary/5 border-l-[3px] border-tb-primary pl-[13px]'
                 : 'text-tb-dark/70 hover:text-tb-dark hover:bg-tb-dark/5'
@@ -125,7 +125,7 @@ function MobileNavLink({ href, onClick, children, indent = false }: { href: stri
     <Link
       href={href}
       onClick={onClick}
-      className={`relative py-3 font-mono text-[13px] uppercase tracking-[0.06em] transition-colors ${
+      className={`relative py-3 font-mono text-[13px] uppercase tracking-[0.08em] transition-colors ${
         indent ? 'pl-10 pr-6' : 'px-6'
       } ${
         isActive
@@ -188,7 +188,7 @@ export default function Nav() {
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex items-center px-3 text-tb-dark/70"
+            className="flex items-center justify-center w-11 h-11 text-tb-dark/70"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             aria-controls={mobileMenuId}

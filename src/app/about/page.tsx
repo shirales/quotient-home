@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ContributorLeaderboard from '@/components/ContributorLeaderboard'
+import WhatPowersQ from '@/components/WhatPowersQ'
+import { PerformanceBenchmarks, PerformanceReview } from '@/components/Performance'
 import { buildPageMetadata } from '@/lib/metadata'
 
 export const metadata = buildPageMetadata({
@@ -19,9 +21,11 @@ export default function AboutPage() {
       <main id="main-content" className="flex flex-col p-tb-gap pt-0 w-full">
         <div className="flex flex-col gap-tb-gap">
           <AboutHero />
-          <WhatQuotientIs />
+          <WhatPowersQ variant="about" />
+          <TrackRecord />
+          <BuildingOn />
+          <TrackRecordReview />
           <ImprovementLoop />
-          <WhereThisIsGoing />
           <ContributorLeaderboard />
           <WhyThisTeam />
           <Footer />
@@ -33,8 +37,8 @@ export default function AboutPage() {
 
 function AboutHero() {
   return (
-    <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24">
-      <div className="max-w-content mx-auto">
+    <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24 min-h-[220px] sm:min-h-[280px] lg:min-h-[340px] flex items-center">
+      <div className="max-w-content mx-auto w-full">
         {/* Content with 3px orange left border */}
         <div className="border-l-[3px] border-tb-primary pl-5">
           <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
@@ -54,41 +58,74 @@ function AboutHero() {
   )
 }
 
-function WhatQuotientIs() {
+function TrackRecord() {
   return (
-    <section className='section-shell bg-tb-page rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y'>
-      <div className="max-w-content mx-auto text-center">
+    <section className='section-shell bg-tb-cream rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y'>
+      <div className="max-w-content mx-auto">
         <span className="block text-[11px] uppercase mb-3 font-mono tracking-[0.08em] text-tb-primary">
-          Our Thinking
+          Performance
         </span>
-        <h2 className='font-headline font-bold uppercase text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-8'>
-          Why Quotient Exists
+        <h2 className='font-headline font-bold uppercase text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-2'>
+          Q&apos;s performance, verified.
         </h2>
-        <div className="flex max-md:flex-col rounded-[10px] overflow-hidden border border-tb-border max-w-[900px] mx-auto">
-          {/* Left panel - dark */}
-          <div className="flex-1 p-7 bg-tb-dark">
-            <div className="font-mono text-[10px] uppercase tracking-[0.08em] text-white/40 mb-3">
-              The problem
+        <p className="text-[15px] leading-[1.7] max-w-[560px] mb-8 text-tb-dark/60">
+          Benchmarked against frontier models and tested against real market outcomes. Q performs at a level worth paying attention to.
+        </p>
+        <PerformanceBenchmarks />
+      </div>
+    </section>
+  )
+}
+
+function TrackRecordReview() {
+  return (
+    <section className='section-shell bg-tb-cream rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y'>
+      <div className="max-w-content mx-auto">
+        <span className="block text-[11px] uppercase mb-3 font-mono tracking-[0.08em] text-tb-primary">
+          The track record
+        </span>
+        <h2 className='font-headline font-bold uppercase text-tb-dark text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-2'>
+          Where Q called it and where it learned.
+        </h2>
+        <p className="text-[15px] leading-[1.7] max-w-[560px] mb-8 text-tb-dark/60">
+          Every resolved market is reviewed. Wins and misses are published so you can evaluate conviction.
+        </p>
+        <PerformanceReview />
+      </div>
+    </section>
+  )
+}
+
+function BuildingOn() {
+  const partners = [
+    { name: 'Polymarket', src: '/logos/Polymarket.png' },
+    { name: 'Bankr', src: '/logos/Bankr.png' },
+    { name: 'World', src: '/logos/World.png' },
+    { name: 'Base', src: '/logos/Base.png' },
+  ]
+
+  return (
+    <section className='section-shell bg-tb-primary rounded-tb-card py-14 sm:py-16'>
+      <div className="max-w-content mx-auto">
+        <span className="block text-[11px] uppercase mb-3 font-mono tracking-[0.08em] text-white/70 text-center">
+          Building on
+        </span>
+        <h2 className='font-headline font-bold uppercase text-white text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-8 text-center'>
+          Where Quotient plugs in.
+        </h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+          {partners.map((partner) => (
+            <div
+              key={partner.name}
+              className="rounded-[10px] bg-white/[0.10] border border-white/20 h-[80px] sm:h-[112px] flex items-center justify-center px-4 sm:px-6 backdrop-blur-sm"
+            >
+              <img
+                src={partner.src}
+                alt={partner.name}
+                className="max-h-10 sm:max-h-16 w-auto brightness-0 invert"
+              />
             </div>
-            <div className="text-[15px] font-medium text-white mb-2">
-              Prediction markets have no intelligence layer.
-            </div>
-            <p className="text-[12px] leading-[1.7] text-white/50">
-              Markets are thinly traded and easily manipulated. Media cites their odds as fact. The spread between what odds say and what evidence supports is real, but most traders can never see it.
-            </p>
-          </div>
-          {/* Right panel - light */}
-          <div className="flex-1 p-7 bg-white">
-            <div className="font-mono text-[10px] uppercase tracking-[0.08em] text-tb-primary mb-3">
-              Quotient
-            </div>
-            <div className="text-[15px] font-medium text-tb-dark mb-2">
-              Q finds the spread before the crowd does.
-            </div>
-            <p className="text-[12px] leading-[1.7] text-tb-dark/50">
-              Quotient combines AI superforecasting with human judgment to identify mispriced markets. 85.1% forecast accuracy. Brier score of 0.076. Every resolved market makes Q sharper.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -158,61 +195,9 @@ function ImprovementLoop() {
   )
 }
 
-function WhereThisIsGoing() {
-  const phases = [
-    {
-      phase: 'Today',
-      title: 'Q',
-      items: ['One agent, one domain, a verified track record, and a vault in development.'],
-    },
-    {
-      phase: 'Soon',
-      title: 'More agents',
-      items: ['New domains, new builders, same coaching loop and evaluation framework.'],
-    },
-    {
-      phase: 'Vision',
-      title: 'The agent marketplace',
-      items: ['Any domain where judgment matters — each agent with its own vault, track record, and data.'],
-    },
-  ]
-
-  return (
-    <section className='section-shell bg-tb-dark rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y'>
-      <div className="max-w-content mx-auto">
-        <span className="block text-[11px] uppercase mb-3 font-mono tracking-[0.08em] text-tb-primary">
-          Roadmap
-        </span>
-        <h2 className='font-headline font-bold uppercase text-white text-[24px] lg:text-[36px] leading-[0.95] tracking-[-0.02em] mb-8'>
-          Where This Is Going
-        </h2>
-        <div className="grid grid-cols-3 max-md:grid-cols-1 gap-[8px]">
-          {phases.map((item) => (
-            <div key={item.phase} className='bg-white/[0.06] rounded-[10px] p-6'>
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] mb-1 text-tb-primary">
-                {item.phase}
-              </div>
-              <div className="text-[16px] font-semibold mb-4 text-white">
-                {item.title}
-              </div>
-              <div className="flex flex-col gap-2">
-                {item.items.map((line) => (
-                  <div key={line} className="text-[13px] leading-relaxed text-white/50">
-                    {line}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function WhyThisTeam() {
   return (
-    <section className='section-shell bg-tb-page rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y'>
+    <section className='section-shell bg-tb-cream rounded-tb-card py-16 sm:py-20 lg:py-tb-section-y'>
       <div className="max-w-content mx-auto">
         <span className="block text-[11px] uppercase mb-3 font-mono tracking-[0.08em] text-tb-primary">
           Why This Team
@@ -222,9 +207,10 @@ function WhyThisTeam() {
         </h2>
         <Link
           href="/team"
-          className="inline-block text-[13px] font-mono uppercase tracking-[0.08em] px-7 py-3 bg-tb-dark text-white rounded-tb-card hover:bg-tb-dark/90 transition-colors"
+          className="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-[0.08em] px-7 py-3 bg-tb-primary text-white rounded-tb-card hover:bg-tb-cta-hover transition-colors group"
         >
-          Meet the team &rarr;
+          Meet the team
+          <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
         </Link>
       </div>
     </section>
