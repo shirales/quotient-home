@@ -216,8 +216,8 @@ export default function GeopoliticalCaseStudiesPage() {
       <main id="main-content" className="flex flex-col p-tb-gap pt-0 w-full">
         <div className="flex flex-col gap-tb-gap">
           {/* Hero - Dark section */}
-          <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24">
-            <div className="max-w-content mx-auto">
+          <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24 min-h-[220px] sm:min-h-[280px] lg:min-h-[340px] flex items-center">
+            <div className="max-w-content mx-auto w-full">
               {/* Content with 3px orange left border */}
               <div className="border-l-[3px] border-tb-primary pl-5">
                 {/* Eyebrow */}
@@ -384,10 +384,10 @@ export default function GeopoliticalCaseStudiesPage() {
               <div className="flex items-center justify-center gap-6 flex-wrap">
                 <Link
                   href={APP_HREF}
-                  className="inline-block font-mono text-[13px] uppercase tracking-[0.08em] px-7 py-3 border border-white text-white bg-transparent rounded-tb-card hover:bg-white hover:text-tb-dark transition-all"
+                  className="inline-flex items-center gap-2 font-mono text-[13px] uppercase tracking-[0.08em] px-7 py-3 border border-white/30 text-white rounded-tb-card hover:border-white/60 transition-colors group"
                 >
-                  Launch
-                  <span className="ml-2">&rarr;</span>
+                  Explore the app
+                  <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
                 </Link>
               </div>
             </div>

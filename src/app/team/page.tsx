@@ -59,8 +59,8 @@ export default function TeamPage() {
       <main id="main-content" className="flex flex-col p-tb-gap pt-0 w-full">
         <div className="flex flex-col gap-tb-gap">
           {/* Hero - Dark section */}
-          <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24">
-            <div className="max-w-content mx-auto">
+          <section className="section-shell bg-tb-dark rounded-tb-card py-16 lg:py-24 min-h-[220px] sm:min-h-[280px] lg:min-h-[340px] flex items-center">
+            <div className="max-w-content mx-auto w-full">
               {/* Content with 3px orange left border */}
               <div className="border-l-[3px] border-tb-primary pl-5">
                 <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
@@ -152,9 +152,10 @@ export default function TeamPage() {
               </h2>
               <a
                 href="mailto:jordan@quotient.social?subject=Interest%20in%20Working%20With%20Quotient"
-                className="inline-block font-mono text-[13px] uppercase tracking-[0.08em] px-7 py-3 bg-tb-primary text-white rounded-tb-card hover:bg-tb-cta-hover transition-colors"
+                className="inline-flex items-center gap-2 font-mono text-[13px] uppercase tracking-[0.08em] px-7 py-3 bg-tb-primary text-white rounded-tb-card hover:bg-tb-cta-hover transition-colors group"
               >
-                Get in touch &rarr;
+                Get in touch
+                <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
               </a>
             </div>
           </section>

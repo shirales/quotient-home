@@ -34,9 +34,10 @@ function SubstackSubscribe() {
       href="https://quotient.substack.com/subscribe"
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-2 whitespace-nowrap transition-colors bg-transparent border border-white/30 text-white/70 hover:border-tb-primary hover:text-tb-primary rounded-[6px]"
+      className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-2 whitespace-nowrap transition-colors bg-transparent border border-white/20 text-white/70 hover:border-white/50 hover:text-white rounded-tb-card group"
     >
-      Subscribe on Substack →
+      Subscribe on Substack
+      <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
     </a>
   )
 }
@@ -65,25 +66,25 @@ export default function Footer() {
             <SubstackSubscribe />
           </div>
 
-          {/* Right: Nav columns - pushed further right with ml-auto and larger gap */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 ml-auto max-md:ml-0">
-            {/* Product Column (renamed from Agentic Trading) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10 ml-auto max-md:ml-0">
             <div className="flex flex-col gap-3">
               <FooterLabel>Product</FooterLabel>
-              <FooterLink href="/case-studies/geopolitical">Geopolitical Case Study</FooterLink>
+              <FooterLink href="https://app.quotient.social">App</FooterLink>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <FooterLabel>Developers</FooterLabel>
               <FooterLink href="/build-with-q">Build with Q</FooterLink>
               <FooterLink href="https://dev.quotient.social/docs#tag/markets/GET/api/v1/markets">API Docs</FooterLink>
+              <FooterLink href="https://dev.quotient.social/dashboard">Get API Key</FooterLink>
+              <FooterLink href="https://skills.bankr.bot/skills/quotient">Bankr Skill</FooterLink>
             </div>
 
-            {/* Company Column */}
             <div className="flex flex-col gap-3">
-              <FooterLabel>Company</FooterLabel>
-              <FooterLink href="/about">About</FooterLink>
-              <FooterLink href="/team">Team</FooterLink>
-              <FooterLink href={CONTACT_HREF}>Contact</FooterLink>
+              <FooterLabel>Case Studies</FooterLabel>
+              <FooterLink href="/case-studies/geopolitical">Geopolitical</FooterLink>
             </div>
 
-            {/* Contributors Column (renamed from Signal) */}
             <div className="flex flex-col gap-3">
               <FooterLabel>Contributors</FooterLabel>
               <FooterLink href="https://signal.quotient.social">Signal</FooterLink>
@@ -91,7 +92,13 @@ export default function Footer() {
               <FooterLink href="https://world.org/mini-app?app_id=app_fcc649404ebe858f0e95cf53a800ec3e">World App</FooterLink>
             </div>
 
-            {/* Social Column */}
+            <div className="flex flex-col gap-3">
+              <FooterLabel>Company</FooterLabel>
+              <FooterLink href="/about">About</FooterLink>
+              <FooterLink href="/team">Team</FooterLink>
+              <FooterLink href={CONTACT_HREF}>Contact</FooterLink>
+            </div>
+
             <div className="flex flex-col gap-3">
               <FooterLabel>Social</FooterLabel>
               <FooterLink href="https://x.com/QuotientHQ">X</FooterLink>
@@ -102,13 +109,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex max-md:flex-col max-md:gap-3 max-md:items-start justify-between items-center relative z-10">
+        <div className="relative z-10">
           <span className="font-mono text-[11px] text-white/40">&copy; 2026 Quotient</span>
-          <div className="flex gap-4 max-md:gap-3 max-md:flex-wrap">
-            <Link href="https://x.com/QuotientHQ" className="font-mono text-white/40 text-[11px] uppercase tracking-[0.08em] hover:text-white transition-colors">X</Link>
-            <Link href="https://farcaster.xyz/quotient" className="font-mono text-white/40 text-[11px] uppercase tracking-[0.08em] hover:text-white transition-colors">Farcaster</Link>
-            <Link href="https://quotient.substack.com/" className="font-mono text-white/40 text-[11px] uppercase tracking-[0.08em] hover:text-white transition-colors">Substack</Link>
-          </div>
         </div>
       </div>
     </footer>

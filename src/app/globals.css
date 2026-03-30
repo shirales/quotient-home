@@ -55,3 +55,17 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Home-v2 animations */
+@keyframes hv2-fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hv2-slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes hv2-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}

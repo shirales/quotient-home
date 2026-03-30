@@ -61,15 +61,10 @@ export default function ContributorLeaderboard() {
           Contributors review forecasts, surface context, and compete for monthly rewards. Here&apos;s who&apos;s leading.
         </p>
 
-        {/* Rewards callout */}
-        <p className="font-mono text-[12px] text-tb-dark/50 mb-6">
-          $250 in monthly rewards split among the top 25 contributors.
-        </p>
-
         {/* Block label with pulse dot */}
         <div className="flex items-center text-[13px] font-semibold text-tb-dark mb-3">
           <PulseDot />
-          Top contributors, live
+          Top contributors
         </div>
 
         {/* Leaderboard table */}
@@ -117,9 +112,10 @@ export default function ContributorLeaderboard() {
           href="https://signal.quotient.social"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center font-mono text-[13px] uppercase tracking-[0.08em] text-tb-primary hover:text-tb-cta-hover transition-colors mt-4"
+          className="inline-flex items-center gap-1.5 font-mono text-[13px] uppercase tracking-[0.08em] text-tb-primary hover:text-tb-cta-hover transition-colors mt-4 group"
         >
-          View full leaderboard &rarr;
+          View full leaderboard
+          <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
         </Link>
 
         {/* Footnote */}
