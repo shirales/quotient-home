@@ -9,17 +9,11 @@ export const metadata = buildPageMetadata({
   path: '/team',
 })
 
-const capabilities = [
-  'Intelligence',
-  'Product & infrastructure',
-  'Operations & growth',
-  'Brand & go-to-market',
-]
-
 const team = [
   {
     initials: 'JO',
     name: 'Jordan Olmstead',
+    linkedin: 'https://www.linkedin.com/in/jordan-o-5b5845128',
     title: 'CEO & Co-Founder',
     function: 'Leads research, forecasting systems, and product direction.',
     bio: "Background in quantitative research and prediction market design. Built Q's forecasting pipeline and analytical framework.",
@@ -28,6 +22,7 @@ const team = [
   {
     initials: 'CH',
     name: 'Cameron Hejazi',
+    linkedin: 'https://www.linkedin.com/in/chejazi',
     title: 'CTO & Co-Founder',
     function: 'Leads engineering, platform, and API infrastructure.',
     bio: 'Background in crypto infrastructure and technical systems. Built the core platform, agent systems, and developer tooling.',
@@ -36,6 +31,7 @@ const team = [
   {
     initials: 'MF',
     name: 'Matthew Ferrick',
+    linkedin: 'https://www.linkedin.com/in/matthew-ferrick-b818a5161',
     title: 'COO & Co-Founder',
     function: 'Leads operations, partnerships, and business development.',
     bio: 'Background in strategy, commercial operations, and enterprise relationship building. Drives execution and partnership growth.',
@@ -44,6 +40,7 @@ const team = [
   {
     initials: 'SS',
     name: 'Shira Stember',
+    linkedin: 'https://www.linkedin.com/in/shirastember/',
     title: 'CMO & Co-Founder',
     function: 'Leads brand, marketing, and go-to-market strategy.',
     bio: "Background in brand strategy, product positioning, and growth. Shapes Quotient's narrative, market presence, and launch strategy.",
@@ -66,31 +63,12 @@ export default function TeamPage() {
                 <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
                   Team
                 </span>
-                <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.95] text-white uppercase tracking-[-0.02em] mb-4 max-w-[640px]">
-                  Built by People Who Understand Intelligence, Infrastructure, and Markets.
+                <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.95] text-white tracking-[-0.03em] mb-4 max-w-[640px]">
+                  The team behind Quotient.
                 </h1>
                 <p className="text-[15px] leading-relaxed text-white/70 max-w-[560px]">
-                  Intelligence background. Crypto infrastructure. Enterprise partnerships.
+                  Market intelligence, crypto infrastructure, enterprise partnerships, and brand. All pointed at the same problem.
                 </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Capability Strip - Cream section */}
-          <section className="section-shell bg-tb-cream rounded-tb-card py-12">
-            <div className="max-w-content mx-auto">
-              <div className="grid grid-cols-4 max-md:grid-cols-2 gap-4">
-                {capabilities.map((cap) => (
-                  <div
-                    key={cap}
-                    className="bg-white rounded-[10px] p-5 text-center"
-                    style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}
-                  >
-                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-tb-dark/70">
-                      {cap}
-                    </span>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
@@ -100,45 +78,52 @@ export default function TeamPage() {
             <div className="max-w-content mx-auto">
               <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6">
                 {team.map((member) => (
-                  <div
+                  <a
                     key={member.initials}
-                    className="bg-white rounded-[10px] p-6"
-                    style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block rounded-[10px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tb-primary/50 focus-visible:ring-offset-2"
                   >
-                    {/* Avatar */}
-                    <div className="w-16 h-16 rounded-full bg-tb-cream flex items-center justify-center mb-4">
-                      <span className="font-mono text-[18px] font-semibold text-tb-dark/60">
-                        {member.initials}
-                      </span>
+                    <div
+                      className="bg-white rounded-[10px] p-6 h-full border border-transparent transition-all duration-200 group-hover:border-tb-primary group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_rgba(238,111,75,0.12)]"
+                      style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}
+                    >
+                      <div className="flex items-start justify-between gap-4 mb-4">
+                        <div className="w-16 h-16 rounded-full bg-tb-cream flex items-center justify-center">
+                          <span className="font-mono text-[18px] font-semibold text-tb-dark/60">
+                            {member.initials}
+                          </span>
+                        </div>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-tb-dark/40 inline-flex items-center gap-1.5">
+                          LinkedIn
+                          <span className="transition-transform group-hover:translate-x-[3px]">&rarr;</span>
+                        </span>
+                      </div>
+
+                      <h3 className="text-[18px] font-semibold text-tb-dark mb-1">
+                        {member.name}
+                      </h3>
+
+                      <div className="text-[14px] text-tb-primary mb-3">
+                        {member.title}
+                      </div>
+
+                      <p className="text-[14px] italic text-tb-dark/60 mb-4">
+                        {member.function}
+                      </p>
+
+                      <p className="text-[14px] leading-relaxed text-tb-dark/70 mb-4">
+                        {member.bio}
+                      </p>
+
+                      <div className="inline-block px-3 py-1.5 bg-tb-cream rounded-[4px]">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-tb-dark/50">
+                          {member.tag}
+                        </span>
+                      </div>
                     </div>
-
-                    {/* Name */}
-                    <h3 className="text-[18px] font-semibold text-tb-dark mb-1">
-                      {member.name}
-                    </h3>
-
-                    {/* Title */}
-                    <div className="text-[14px] text-tb-primary mb-3">
-                      {member.title}
-                    </div>
-
-                    {/* Function summary */}
-                    <p className="text-[14px] italic text-tb-dark/60 mb-4">
-                      {member.function}
-                    </p>
-
-                    {/* Bio */}
-                    <p className="text-[14px] leading-relaxed text-tb-dark/70 mb-4">
-                      {member.bio}
-                    </p>
-
-                    {/* Tag */}
-                    <div className="inline-block px-3 py-1.5 bg-tb-cream rounded-[4px]">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-tb-dark/50">
-                        {member.tag}
-                      </span>
-                    </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>

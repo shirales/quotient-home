@@ -226,8 +226,9 @@ export default function GeopoliticalCaseStudiesPage() {
                 </div>
 
                 {/* Headline */}
-                <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.95] text-white uppercase tracking-[-0.02em] mb-4 max-w-[640px]">
-                  How Q Identified Mispriced Markets Before the Crowd
+                <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.95] text-white tracking-[-0.03em] mb-4 max-w-[640px]">
+                  How Q identified mispriced<br />
+                  markets before the crowd.
                 </h1>
 
                 {/* Subhead */}
