@@ -22,10 +22,10 @@ export default function BuildWithQPage() {
         <div className="flex flex-col gap-tb-gap">
           <BuildWithQHero />
           <BuildWithQIntro />
+          <BankrPartnership />
           <WhatsAvailable />
           <ForecastBreakdown />
           <CoreEndpoints />
-          <BankrPartnership />
           <Footer />
         </div>
       </main>
