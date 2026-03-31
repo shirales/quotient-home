@@ -9,11 +9,18 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        userAgent: 'OAI-SearchBot',
+        userAgent: 'GPTBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Claude-Web',
+        allow: '/',
+      },
+      {
+        userAgent: 'PerplexityBot',
         allow: '/',
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
   }
 }
