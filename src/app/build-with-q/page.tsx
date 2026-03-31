@@ -7,15 +7,76 @@ import Link from 'next/link'
 import { buildPageMetadata } from '@/lib/metadata'
 
 export const metadata = buildPageMetadata({
-  title: 'Build with Q',
+  title: 'Build with Q — AI Forecasting API for Prediction Markets',
   description:
-    'Access Q forecasts, signals, mispriced markets, and structured trading intelligence through the Quotient API.',
+    "API access to Q's forecasts, signals, and mispriced markets. Built for humans and agents alike. Power trading platforms, dashboards, and autonomous agents including via the Bankr skill.",
+  ogImage: '/og/og-build.png',
   path: '/build-with-q',
+})
+
+// FAQ schema — static, trusted content only (no user input)
+const FAQ_SCHEMA = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What does the Quotient API return?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "The Quotient API returns structured forecasts for prediction markets. Each market object includes the slug, question text, Q's probability estimate (quotient_odds), current market odds, a bottom-line summary (bluf), the spread between Q's forecast and market odds, spread direction, last updated timestamp, and signal count. Forecasts are organized into narratives \u2014 groups of related markets under a single thesis.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does authentication work for the Quotient API?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Quotient API supports two payment methods. The first is x402 microtransactions: make a request without a key, receive a 402 challenge in PAYMENT-REQUIRED, then settle and retry with PAYMENT-SIGNATURE. This is best for pay-as-you-go flows and agent-native payment rails. The second is prepaid API credits purchased via Stripe, used with the x-quotient-api-key header. Enterprise onboarding is available via sales@quotient.social. API keys are available at dev.quotient.social/dashboard.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the Quotient API endpoints and their pricing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Quotient API has five endpoints. GET /api/v1/markets returns the full market catalog with forecast coverage and pagination (5 credits / $0.005 per request). GET /api/v1/markets/lookup does batch lookup by slug or condition IDs (5 credits / $0.005). GET /api/v1/markets/mispriced returns markets where Q diverges most from market odds (100 credits / $0.10). GET /api/v1/markets/{slug}/intelligence returns a full intelligence briefing for a single market (250 credits / $0.25). GET /api/v1/markets/{slug}/signals returns paginated analyst signals for a market (25 credits / $0.025). Current pricing is also available programmatically at https://q-api.quotient.social/api/public/pricing.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What can I build with the Quotient API?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "The Quotient API is designed for trading platforms, research dashboards, and autonomous agents. It powers the Bankr skill \u2014 a plug-and-play integration that gives AI agents access to Q's forecasts, signals, and strategy across 1,200+ prediction markets on Polymarket. The API is agent-native with x402 micropayment support, making it compatible with self-sustaining AI agent workflows.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How is Quotient different from other prediction market platforms?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Unlike other platforms, Quotient tells users what to trade and why. Q tracks 1,600+ sources for events that impact global markets, links them to Polymarket, assesses impact, and generates structured forecasts focused on world events markets. Q has an 85.1% win rate and a Brier score of 0.076, outperforming frontier AI models and human superforecaster benchmarks.',
+      },
+    },
+  ],
+})
+
+// Breadcrumb schema — static, trusted content only (no user input)
+const BREADCRUMB_SCHEMA = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Quotient', item: 'https://www.quotient.social' },
+    { '@type': 'ListItem', position: 2, name: 'Build with Q', item: 'https://www.quotient.social/build-with-q' },
+  ],
 })
 
 export default function BuildWithQPage() {
   return (
     <div className='min-h-screen bg-tb-page pt-[44px]'>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: FAQ_SCHEMA }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: BREADCRUMB_SCHEMA }} />
       <Nav />
 
       <main id="main-content" className="flex flex-col p-tb-gap pt-0 w-full">

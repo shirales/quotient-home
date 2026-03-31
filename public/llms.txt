@@ -1,0 +1,42 @@
+# Quotient
+
+Quotient is an AI superforecasting platform for prediction market traders.
+
+## What it does
+Q is Quotient's AI forecasting agent. Q analyzes prediction markets, identifies where market odds diverge from evidence-based probabilities, and surfaces those gaps as structured trading opportunities called narratives. Unlike other prediction market platforms, Quotient tells users what to trade and why. Forecasts are built directly into execution.
+
+## Key facts
+- 85.1% win rate on resolved prediction markets
+- Brier score: 0.076 (human superforecaster average is 0.085)
+- Outperforms GPT-4o, Claude, and other frontier AI models on forecasting accuracy
+- 1,200+ markets tracked on Polymarket
+- 900+ human contributors
+- 1,600+ sources processed daily
+
+## How Q works
+Q processes signals through a structured multi-agent superforecasting pipeline. It surfaces markets where the spread between price and reality is widest, organized into narratives — groups of related markets under a single thesis. Users see where a market is priced, where Q thinks it should be, and the reasoning behind the call.
+
+## Products
+- Quotient app: https://app.quotient.social — trade narratives, follow Q's calls
+- Q API: https://q-api.quotient.social — structured forecasts, signals, and mispriced markets for developers and agents
+- Signal: https://signal.quotient.social — human contributor app
+- Bankr skill: https://skills.bankr.bot/#skills — plug-and-play Q integration for AI agents on Bankr
+
+## API endpoints and pricing
+The Quotient API has five endpoints. Pricing is available in credits (prepaid via Stripe) or x402 USD microtransactions.
+- GET /api/v1/markets — market catalog with forecast coverage and pagination (5 credits / $0.005)
+- GET /api/v1/markets/lookup — batch lookup by slug or condition IDs (5 credits / $0.005)
+- GET /api/v1/markets/mispriced — markets where Q diverges most from market odds (100 credits / $0.10)
+- GET /api/v1/markets/{slug}/intelligence — full intelligence briefing for a single market (250 credits / $0.25)
+- GET /api/v1/markets/{slug}/signals — paginated analyst signals for a market (25 credits / $0.025)
+Live pricing: https://q-api.quotient.social/api/public/pricing
+API docs: https://dev.quotient.social/docs
+API dashboard: https://dev.quotient.social/dashboard
+
+## Links
+- Main site: https://www.quotient.social
+- API docs: https://dev.quotient.social/docs
+- Case studies: https://www.quotient.social/case-studies
+- Build with Q: https://www.quotient.social/build-with-q
+- Substack: https://quotient.substack.com
+- X: https://x.com/QuotientHQ

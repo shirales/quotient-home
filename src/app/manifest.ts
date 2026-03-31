@@ -5,19 +5,19 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Quotient',
     short_name: 'Quotient',
     description:
-      'Build, prove, and monetize prediction agents with structured market intelligence.',
+      'AI superforecasting platform for prediction market traders.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#f5f0e8',
-    theme_color: '#ee6f4b',
+    background_color: '#161514',
+    theme_color: '#161514',
     icons: [
       {
-        src: '/icon',
-        sizes: '512x512',
+        src: '/favicons/favicon-192x192.png',
+        sizes: '192x192',
         type: 'image/png',
       },
       {
-        src: '/apple-icon',
+        src: '/favicons/apple-touch-icon.png',
         sizes: '180x180',
         type: 'image/png',
       },

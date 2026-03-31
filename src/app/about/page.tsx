@@ -7,15 +7,26 @@ import { PerformanceBenchmarks, PerformanceReview } from '@/components/Performan
 import { buildPageMetadata } from '@/lib/metadata'
 
 export const metadata = buildPageMetadata({
-  title: 'About',
+  title: 'About Quotient — AI Superforecasting for Prediction Markets',
   description:
-    'Learn how Quotient combines structured AI reasoning, broad source coverage, and contributor signal to improve market forecasts.',
+    'Quotient combines AI superforecasting with human contributor signal to surface where prediction markets have it wrong. 85.1% win rate. Brier score 0.076. Every resolved market makes Q sharper.',
   path: '/about',
+})
+
+// Breadcrumb schema — hardcoded static content, safe for inline rendering
+const BREADCRUMB_SCHEMA = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Quotient', item: 'https://www.quotient.social' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://www.quotient.social/about' },
+  ],
 })
 
 export default function AboutPage() {
   return (
     <div className='min-h-screen bg-tb-page pt-[44px]'>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: BREADCRUMB_SCHEMA }} />
       <Nav />
 
       <main id="main-content" className="flex flex-col p-tb-gap pt-0 w-full">

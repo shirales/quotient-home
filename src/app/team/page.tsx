@@ -3,9 +3,9 @@ import Footer from '@/components/Footer'
 import { buildPageMetadata } from '@/lib/metadata'
 
 export const metadata = buildPageMetadata({
-  title: 'Team',
+  title: 'The Team Behind Quotient',
   description:
-    'Meet the Quotient team building forecasting systems, market intelligence infrastructure, and the platform around Q.',
+    'Market intelligence, crypto infrastructure, enterprise partnerships, and brand. All pointed at the same problem.',
   path: '/team',
 })
 
@@ -51,9 +51,20 @@ const team = [
   },
 ]
 
+// Breadcrumb — hardcoded string literals only, safe for rendering
+const BREADCRUMB_SCHEMA = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Quotient', item: 'https://www.quotient.social' },
+    { '@type': 'ListItem', position: 2, name: 'Team', item: 'https://www.quotient.social/team' },
+  ],
+})
+
 export default function TeamPage() {
   return (
     <div className='min-h-screen bg-tb-page pt-[44px]'>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: BREADCRUMB_SCHEMA }} />
       <Nav />
 
       <main id="main-content" className="flex flex-col p-tb-gap pt-0 w-full">
