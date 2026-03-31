@@ -44,10 +44,9 @@ function AboutHero() {
           <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
             About Quotient
           </span>
-          <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.95] text-white uppercase tracking-[-0.02em] mb-4 max-w-[640px]">
-            Turns market noise<br />
-            into actionable<br />
-            trading strategies.
+          <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.95] text-white tracking-[-0.03em] mb-4 max-w-[640px]">
+            Turns market noise into<br />
+            actionable trading strategies.
           </h1>
           <p className="text-[15px] leading-relaxed text-white/70 max-w-[560px]">
             We combine broad source coverage, structured AI reasoning, and human contributor signal to surface where consensus breaks down.

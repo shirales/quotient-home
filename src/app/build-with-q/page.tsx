@@ -42,10 +42,9 @@ function BuildWithQHero() {
           <span className="block font-mono text-[11px] uppercase tracking-[0.08em] text-tb-primary mb-3">
             Build with Q
           </span>
-          <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.92] uppercase tracking-[-0.02em] mb-4 max-w-[640px]">
-            <span className="text-white">Q&apos;s intelligence layer,</span>
-            <br />
-            <span className="text-white/70">via API</span>
+          <h1 className="font-headline font-bold text-[32px] lg:text-[48px] leading-[0.95] tracking-[-0.03em] mb-4 max-w-[640px]">
+            <span className="text-white">Q&apos;s intelligence layer, </span>
+            <span className="text-white/70">via API.</span>
           </h1>
           <p className="text-[15px] leading-[1.7] max-w-[480px] mb-6 text-white/70">
             Forecasts, signals, and trading strategies for apps, agents, and workflows.
